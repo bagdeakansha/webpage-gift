@@ -1,391 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine Surprise for My Love</title>
-    <style>
-        /* Global Styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #000000, #2c1810);
-            color: #ffffff;
-            overflow-x: hidden;
-            position: relative;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Abhii ❤️</title>
 
-        /* Floating Hearts Animation */
-        .hearts {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300&display=swap" rel="stylesheet">
 
-        .heart {
-            position: absolute;
-            font-size: 2rem;
-            color: #ff69b4;
-            animation: float 6s linear infinite;
-            opacity: 0.7;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); }
-            100% { transform: translateY(-100vh) rotate(360deg); }
-        }
+body{
+background:black;
+font-family:'Poppins',sans-serif;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+color:white;
+}
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
+/* background glow */
+body::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:radial-gradient(circle,#300000,#000000 70%);
+z-index:-2;
+}
 
-        .hero h1 {
-            font-size: 4rem;
-            font-family: 'Dancing Script', cursive;
-            color: #ff1493;
-            text-shadow: 0 0 20px #ff69b4;
-            margin-bottom: 20px;
-        }
+/* floating hearts */
+.hearts{
+position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
+}
 
-        .hero p {
-            font-size: 1.5rem;
-            color: #ffb6c1;
-            margin-bottom: 40px;
-        }
+.heart{
+position:absolute;
+color:#ff0033;
+font-size:22px;
+animation:float 6s linear infinite;
+opacity:.7;
+}
 
-        .btn {
-            background: linear-gradient(45deg, #ff1493, #ff69b4);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
-            transition: all 0.3s ease;
-        }
+@keyframes float{
+0%{transform:translateY(100vh) scale(.5);}
+100%{transform:translateY(-10vh) scale(1.4);}
+}
 
-        .btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(255, 20, 147, 0.8);
-        }
+.photo-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin-bottom:20px;
+perspective:1000px;
+}
 
-        /* Sections */
-        section {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
+.photo-grid img{
+width:100%;
+height:95px;
+object-fit:cover;
+border-radius:15px;
+box-shadow:0 0 15px rgba(255,0,0,.6);
+transition:.4s;
+animation:fadeIn 1s ease forwards;
+opacity:0;
+}
 
-        section h2 {
-            font-size: 2.5rem;
-            font-family: 'Dancing Script', cursive;
-            color: #ff1493;
-            margin-bottom: 30px;
-            text-shadow: 0 0 10px #ff69b4;
-        }
+/* delay for cinematic entry */
+.photo-grid img:nth-child(1){animation-delay:.2s;}
+.photo-grid img:nth-child(2){animation-delay:.4s;}
+.photo-grid img:nth-child(3){animation-delay:.6s;}
+.photo-grid img:nth-child(4){animation-delay:.8s;}
+.photo-grid img:nth-child(5){animation-delay:1s;}
+.photo-grid img:nth-child(6){animation-delay:1.2s;}
 
-        /* Love Message */
-        .love-message {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-            box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
-        }
+@keyframes fadeIn{
+from{transform:scale(.6) rotateY(40deg); opacity:0;}
+to{transform:scale(1) rotateY(0); opacity:1;}
+}
 
-        .love-message p {
-            font-size: 1.3rem;
-            line-height: 1.6;
-            color: #ffb6c1;
-        }
+/* hover effect */
+.photo-grid img:hover{
+transform:scale(1.15);
+box-shadow:0 0 25px red,0 0 40px #ff0033;
+z-index:5;
+}
 
-        /* Reasons Why I Love You */
-        .reasons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
 
-        .reason {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            width: 300px;
-            box-shadow: 0 0 15px rgba(255, 20, 147, 0.3);
-            transition: transform 0.3s ease;
-        }
+/* container */
+.container{
+width:90%;
+max-width:420px;
+z-index:2;
+}
 
-        .reason:hover {
-            transform: translateY(-10px);
-        }
+/* screens */
+.screen{
+display:none;
+flex-direction:column;
+align-items:center;
+text-align:center;
+padding:35px 25px;
+border-radius:25px;
+background:rgba(0,0,0,0.7);
+backdrop-filter: blur(10px);
+border:1px solid rgba(255,0,0,.4);
+box-shadow:0 0 40px rgba(255,0,0,.4);
+animation:fade .8s ease;
+}
 
-        .reason .heart-icon {
-            font-size: 2rem;
-            color: #ff1493;
-            margin-bottom: 10px;
-        }
+.screen.active{display:flex;}
 
-        /* Memories */
-        .memories {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
+@keyframes fade{
+from{opacity:0; transform:translateY(40px);}
+to{opacity:1; transform:translateY(0);}
+}
 
-        .memory {
-            width: 300px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 0 15px rgba(255, 20, 147, 0.3);
-        }
+h1{
+font-family:'Great Vibes',cursive;
+font-size:50px;
+color:#ff0033;
+text-shadow:0 0 25px red;
+margin-bottom:10px;
+}
 
-        .memory img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
+p{
+font-family:'Great Vibes',cursive;
+font-size:26px;
+color:#ffd6d6;
+line-height:1.7;
+margin-bottom:25px;
+}
 
-        .memory p {
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffb6c1;
-        }
+/* typing text */
+#typing{
+border-right:3px solid red;
+white-space:nowrap;
+overflow:hidden;
+width:0;
+animation:typing 4s steps(30,end) forwards, blink .8s infinite;
+}
 
-        /* Popup */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
+@keyframes typing{to{width:100%;}}
+@keyframes blink{50%{border-color:transparent;}}
 
-        .popup-content {
-            background: linear-gradient(135deg, #ff1493, #ff69b4);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 0 30px rgba(255, 20, 147, 0.8);
-            max-width: 500px;
-            color: white;
-        }
+/* button */
+.btn{
+background:linear-gradient(45deg,#ff0000,#8b0000);
+border:none;
+padding:14px 30px;
+border-radius:40px;
+color:white;
+font-size:16px;
+cursor:pointer;
+box-shadow:0 0 25px red;
+transition:.3s;
+}
 
-        .popup-content h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
+.btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 50px red;
+}
 
-        .popup-content p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
+/* images */
+img{
+width:240px;
+border-radius:20px;
+margin-bottom:20px;
+box-shadow:0 0 25px red;
+}
 
-        .close-btn {
-            background: #000;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 20px;
-            border-radius: 50px;
-            cursor: pointer;
-        }
+/* music btn */
+.music{
+position:fixed;
+bottom:20px;
+right:20px;
+}
 
-        /* Music */
-        .music {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 100;
-        }
+.music button{
+background:red;
+border:none;
+padding:15px;
+border-radius:50%;
+color:white;
+font-size:20px;
+box-shadow:0 0 25px red;
+cursor:pointer;
+}
 
-        .music-btn {
-            background: rgba(255, 20, 147, 0.8);
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
-        }
+/* fireworks */
+.fire{
+position:fixed;
+width:6px;
+height:6px;
+background:red;
+border-radius:50%;
+animation:boom 1s linear infinite;
+}
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffb6c1;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            .hero p { font-size: 1.2rem; }
-            section h2 { font-size: 2rem; }
-            .reasons { flex-direction: column; align-items: center; }
-            .memories { flex-direction: column; align-items: center; }
-        }
-    </style>
+@keyframes boom{
+0%{transform:scale(1);opacity:1;}
+100%{transform:scale(20);opacity:0;}
+}
+</style>
 </head>
+
 <body>
-    <!-- Floating Hearts -->
-    <div class="hearts" id="hearts"></div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Hey My Love ❤️</h1>
-        <p>This is a small surprise made just for you</p>
-        <button class="btn" onclick="scrollToNext()">Click Me</button>
-    </section>
+<div class="hearts" id="hearts"></div>
 
-    <!-- Love Message Section -->
-    <section id="love-message">
-        <h2>A Message from My Heart</h2>
-        <div class="love-message">
-            <p>My love, you are the most special person in my world. You are my safe place, where I feel completely at ease and loved. Every day with you brings happiness that lights up my life. You are my favorite person, the one who makes everything feel right. Life feels so beautiful with you by my side – simple, real, and full of joy. I cherish every moment we share.</p>
-        </div>
-    </section>
+<div class="container">
 
-    <!-- Reasons Why I Love You Section -->
-    <section id="reasons">
-        <h2>Why I Love You</h2>
-        <div class="reasons">
-            <div class="reason">
-                <div class="heart-icon">❤️</div>
-                <p>You make me smile every day</p>
-            </div>
-            <div class="reason">
-                <div class="heart-icon">❤️</div>
-                <p>You support me always</p>
-            </div>
-            <div class="reason">
-                <div class="heart-icon">❤️</div>
-                <p>You understand me like no one else</p>
-            </div>
-            <div class="reason">
-                <div class="heart-icon">❤️</div>
-                <p>You are my comfort person</p>
-            </div>
-            <div class="reason">
-                <div class="heart-icon">❤️</div>
-                <p>Life is so much fun with you</p>
-            </div>
-            <div class="reason">
-                <div class="heart-icon">❤️</div>
-                <p>You make my heart skip a beat</p>
-            </div>
-            <div class="reason">
-                <div class="heart-icon">❤️</div>
-                <p>You are my forever adventure</p>
-            </div>
-        </div>
-    </section>
+<!-- screen 1 -->
+<div class="screen active" id="s1">
+<!-- <h1>Helloo babyyyy!!</h1> -->
+<!-- <p id="">Someone special is reading this… yes YOU ❤️</p> -->
+<p id="typing">Wait… I have something special for you ❤️</p>
+<br>
+<button class="btn" onclick="next(1)">Tap for a surprise🖤</button>
+</div>
 
-    <!-- Memories Section -->
-    <section id="memories">
-        <h2>Our Beautiful Moments</h2>
-        <div class="memories">
-            <div class="memory">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=300&h=200&fit=crop" alt="Memory 1">
-                <p>Our first date under the stars</p>
-            </div>
-            <div class="memory">
-                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=300&h=200&fit=crop" alt="Memory 2">
-                <p>Walking hand in hand by the beach</p>
-            </div>
-            <div class="memory">
-                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=300&h=200&fit=crop" alt="Memory 3">
-                <p>Laughing together on a cozy evening</p>
-            </div>
-        </div>
-    </section>
+<!-- screen 2 -->
+<div class="screen" id="s2">
+<p>
+Sometimes you feel like you are not important to me…<br>
+but the truth is, I value you more than you can imagine ❤️<br><br>
 
-    <!-- Special Message Popup Trigger -->
-    <section>
-        <button class="btn" onclick="openPopup()">Open Your Gift 🎁</button>
-    </section>
+I never share myself with anyone,<br>
+but with you it feels different… special.<br>
+You always make me feel loved, valued, and safe 🥺<br><br>
 
-    <!-- Popup -->
-    <div class="popup" id="popup">
-        <div class="popup-content">
-            <h3>Happy Valentine’s Day my love ❤️</h3>
-            <p>You are the best thing that ever happened to me. I’m lucky to have you in my life. Forever yours 💕</p>
-            <button class="close-btn" onclick="closePopup()">Close</button>
-        </div>
-    </div>
+I’m truly grateful for you.<br>
+You are the best thing that ever happened to me.<br>
+And honestly…<br>
+I never loved myself the way you love me ❤️
+</p>
 
-    <!-- Background Music -->
-    <div class="music">
-        <button class="music-btn" onclick="toggleMusic()">🎵</button>
-        <audio id="bg-music" loop>
-            <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav"> <!-- Placeholder: Replace with a romantic free audio URL -->
-        </audio>
-    </div>
+<button class="btn" onclick="next(2)">Read more 💌</button>
+</div>
 
-    <!-- Footer -->
-    <footer>
-        <p>Made with ❤️ by your girlfriend</p>
-    </footer>
+<!-- screen 3 -->
+<div class="screen" id="s3">
 
-    <script>
-        // Generate Floating Hearts
-        function createHearts() {
-            const heartsContainer = document.getElementById('hearts');
-            for (let i = 0; i < 20; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.innerHTML = '❤️';
-                heart.style.left = Math.random() * 100 + '%';
-                heart.style.animationDelay = Math.random() * 6 + 's';
-                heartsContainer.appendChild(heart);
-            }
-        }
-        createHearts();
+<div class="photo-grid">
+  <img src="./images/a1.jpeg">
+  <img src="./images/a2.jpeg">
+  <img src="./images/a3.jpeg">
+  <img src="./images/a4.jpeg">
+  <img src="./images/a5.jpeg">
+  <img src="./images/a7.jpeg">
+</div>
 
-        // Scroll to Next Section
-        function scrollToNext() {
-            document.getElementById('love-message').scrollIntoView({ behavior: 'smooth' });
-        }
+<p>
+If you were here right now…<br>
+I would hug you so tight ❤️<br>
+Happy Valentine's Day Babyy 🥺
+</p>
 
-        // Popup Functions
-        function openPopup() {
-            document.getElementById('popup').style.display = 'flex';
-        }
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-        }
+<button class="btn" onclick="next(3)">Final message for you 💖</button>
+</div>
 
-        // Music Toggle
-        let musicPlaying = false;
-        const audio = document.getElementById('bg-music');
-        function toggleMusic() {
-            if (musicPlaying) {
-                audio.pause();
-            } else {
-                audio.play();
-            }
-            musicPlaying = !musicPlaying;
-        }
-    </script>
+
+<!-- final screen -->
+<div class="screen" id="s4">
+<h1>ily too babyy!!</h1>
+<img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+<p>Made with ❤️ by your favorite person...</p>
+</div>
+
+</div>
+
+<!-- music -->
+<div class="music">
+<button onclick="playMusic()">🎵</button>
+<audio id="m" loop autoplay>
+<source src="./images/d1.mp3">
+</audio>
+</div>
+
+<script>
+/* floating hearts */
+const hearts=document.getElementById("hearts");
+for(let i=0;i<40;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"%";
+h.style.animationDuration=(4+Math.random()*5)+"s";
+hearts.appendChild(h);
+}
+
+/* screen change */
+function next(n){
+document.getElementById("s"+n).classList.remove("active");
+setTimeout(()=>{
+document.getElementById("s"+(n+1)).classList.add("active");
+if(n==3) firework();
+},400);
+}
+
+/* music */
+let playing=true;
+function playMusic(){
+let m=document.getElementById("m");
+if(playing){m.pause();}
+else{m.play();}
+playing=!playing;
+}
+
+/* fireworks */
+function firework(){
+for(let i=0;i<25;i++){
+let f=document.createElement("div");
+f.className="fire";
+f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*100+"vh";
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),900);
+}
+}
+</script>
+
 </body>
 </html>
